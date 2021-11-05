@@ -15,14 +15,14 @@ class ApiResponseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->singleton(ApiResponseHelper::class, function() {
+        $this->app->singleton(ApiResponseHelper::class, function () {
             return new ApiResponseHelper();
         });
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
         $this->mergeConfigFrom(__DIR__ . '/config/apiresponse.php', 'apiresponse');
         $this->publishes([
-            __DIR__.'/config/apiresponse.php' => config_path('apiresponse.php'),
-        ]);
+            __DIR__ . '/config/apiresponse.php' => config_path('apiresponse.php'),
+        ], 'apiresponse-config');
         /*
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'contact');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
