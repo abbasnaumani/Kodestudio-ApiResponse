@@ -89,7 +89,6 @@ class ApiResponseHelper
         if ($apiHelper->responseFormat == config('apiresponse.response_format')) {
             return response()->json($apiHelper, $apiHelper->code);
         }
-        dd($apiHelper);
         return $apiHelper;
     }
 }
