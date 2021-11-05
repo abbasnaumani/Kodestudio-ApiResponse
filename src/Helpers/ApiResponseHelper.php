@@ -18,77 +18,77 @@ class ApiResponseHelper
         $this->responseFormat = config('apiresponse.response_format');
     }
 
-    public static function setStatus($status)
+    public function setStatus($status)
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        $apiHelper->status = $status;
+        //  $apiHelper = app(ApiResponseHelper::class);
+        $this->status = $status;
     }
 
-    public static function getStatus()
+    public function getStatus()
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        return $apiHelper->status;
+        //    $apiHelper = app(ApiResponseHelper::class);
+        return $this->status;
     }
 
-    public static function setCode($code)
+    public function setCode($code)
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        $apiHelper->code = $code;
+        // $apiHelper = app(ApiResponseHelper::class);
+        $this->code = $code;
     }
 
-    public static function getCode()
+    public function getCode()
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        return $apiHelper->code;
+        //$apiHelper = app(ApiResponseHelper::class);
+        return $this->code;
     }
 
-    public static function setMessage($message)
+    public function setMessage($message)
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        $apiHelper->message = $message;
+        //  $apiHelper = app(ApiResponseHelper::class);
+        $this->message = $message;
     }
 
-    public static function getMessage()
+    public function getMessage()
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        return $apiHelper->message;
+        /// $apiHelper = app(ApiResponseHelper::class);
+        return $this->message;
     }
 
-    public static function setData($data)
+    public function setData($data)
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        $apiHelper->data = $data;
+        // $apiHelper = app(ApiResponseHelper::class);
+        $this->data = $data;
     }
 
-    public static function getData()
+    public function getData()
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        return $apiHelper->data;
+        //   $apiHelper = app(ApiResponseHelper::class);
+        return $this->data;
     }
 
-    public static function setResponseFormat($responseFormat)
+    public function setResponseFormat($responseFormat)
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        $apiHelper->responseFormat = $responseFormat;
+        // $apiHelper = app(ApiResponseHelper::class);
+        $this->responseFormat = $responseFormat;
     }
 
-    public static function getResponseFormat()
+    public function getResponseFormat()
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        return $apiHelper->responseFormat;
+        // $apiHelper = app(ApiResponseHelper::class);
+        return $this->responseFormat;
     }
 
-    public static function getResponse()
+    public function getResponse()
     {
-        return app(ApiResponseHelper::class);
+        return $this;
     }
 
-    public static function getApiResponse()
+    public function getApiResponse()
     {
-        $apiHelper = app(ApiResponseHelper::class);
-        if ($apiHelper->responseFormat == config('apiresponse.response_format')) {
-            return response()->json($apiHelper, $apiHelper->code);
+        //   $apiHelper = app(ApiResponseHelper::class);
+        if ($this->responseFormat == config('apiresponse.response_format')) {
+            return response()->json($this, $this->code);
         }
-        return $apiHelper;
+        return $this;
     }
 }

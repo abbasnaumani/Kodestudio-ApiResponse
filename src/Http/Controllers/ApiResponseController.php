@@ -14,6 +14,7 @@ class ApiResponseController extends Controller
      */
     public function index()
     {
+        $this->setApiErrorMessage('Yoooooo');
         return $this->getApiResponse();
         //return view('apiresponse::apiresponse');
     }

@@ -2,33 +2,33 @@
 
 namespace Kodestudio\ApiResponse\Traits;
 
-use Kodestudio\ApiResponse\Helpers\ApiResponseHelper;
+use Kodestudio\ApiResponse\Facades\ApiResponseFacade;
 
 trait ApiResponse
 {
 
     public function setApiSuccessMessage($msg, $data = null, $statusCode = 200)
     {
-        ApiResponseHelper::setStatus( config('apiresponse.success_response'));
-        ApiResponseHelper::setMessage($msg);
-        ApiResponseHelper::setData($data);
-        ApiResponseHelper::setCode($statusCode);
+        ApiResponseFacade::setStatus(config('apiresponse.success_response'));
+        ApiResponseFacade::setMessage($msg);
+        ApiResponseFacade::setData($data);
+        ApiResponseFacade::setCode($statusCode);
     }
 
     public function setApiErrorMessage($msg, $data = null, $statusCode = 400)
     {
-        ApiResponseHelper::setMessage($msg);
-        ApiResponseHelper::setData($data);
-        ApiResponseHelper::setCode($statusCode);
+        ApiResponseFacade::setMessage($msg);
+        ApiResponseFacade::setData($data);
+        ApiResponseFacade::setCode($statusCode);
     }
 
     public function response()
     {
-        return ApiResponseHelper::getResponse();
+        return ApiResponseFacade::getResponse();
     }
 
     public function getApiResponse()
     {
-        return ApiResponseHelper::getApiResponse();
+        return ApiResponseFacade::getApiResponse();
     }
 }
