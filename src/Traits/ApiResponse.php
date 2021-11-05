@@ -9,6 +9,7 @@ trait ApiResponse
 
     public function setApiSuccessMessage($msg, $data = null, $statusCode = 200)
     {
+        ApiResponseHelper::setStatus( config('apiresponse.success_response'));
         ApiResponseHelper::setMessage($msg);
         ApiResponseHelper::setData($data);
         ApiResponseHelper::setCode($statusCode);

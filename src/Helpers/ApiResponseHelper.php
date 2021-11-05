@@ -18,6 +18,18 @@ class ApiResponseHelper
         $this->responseFormat = config('apiresponse.response_format');
     }
 
+    public static function setStatus($status)
+    {
+        $apiHelper = app(ApiResponseHelper::class);
+        $apiHelper->status = $status;
+    }
+
+    public static function getStatus()
+    {
+        $apiHelper = app(ApiResponseHelper::class);
+        return $apiHelper->status;
+    }
+
     public static function setCode($code)
     {
         $apiHelper = app(ApiResponseHelper::class);

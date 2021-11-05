@@ -2,7 +2,7 @@
 
 return [
     'success_response' => 'SUCCESS',
-    'error_response' => 'ERROR123',
+    'error_response' => 'ERROR',
     'success_code' => 200,
     'error_code' => 400,
     'success_message' => 'success',

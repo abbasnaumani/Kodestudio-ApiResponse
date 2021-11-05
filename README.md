@@ -4,5 +4,5 @@
 
 # Instructions to Configuration
 1. install package "composer require kodestudio/apiresponse"
-2. Add "Kodestudio\ApiResponse\ApiResponseServiceProvider::class" in config/app.php before RouteServiceProvider
+2. Add in providers "Kodestudio\ApiResponse\ApiResponseServiceProvider::class" in config/app.php before RouteServiceProvider
 3. php artisan vendor:publish --tag=apiresponse-config
