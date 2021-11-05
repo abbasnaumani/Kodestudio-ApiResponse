@@ -1,0 +1,24 @@
+{
+    "name": "kodestudio/apiresponse",
+    "description": "Helper Functions for API Response",
+    "type": "library",
+    "keywords": [
+        "apiresponse",
+        "response",
+        "laravel"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kodestudio\\ApiResponse\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "abbasnaumani",
+            "email": "abbasnaumani@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
