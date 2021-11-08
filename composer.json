@@ -1,6 +1,6 @@
 {
     "name": "kodestudio/apiresponse",
-    "description": "Helper Functions for API Response",
+    "description": "Package to generate a standard structure for api responses",
     "type": "library",
     "keywords": [
         "apiresponse",

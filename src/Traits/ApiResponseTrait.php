@@ -4,7 +4,7 @@ namespace Kodestudio\ApiResponse\Traits;
 
 use Kodestudio\ApiResponse\Facades\ApiResponseFacade;
 
-trait ApiResponse
+trait ApiResponseTrait
 {
 
     public function setApiSuccessMessage($msg, $data = null, $statusCode = 200)
@@ -30,5 +30,16 @@ trait ApiResponse
     public function getApiResponse()
     {
         return ApiResponseFacade::getApiResponse();
+    }
+
+    private function extractErrorMessage($exceptionErrors)
+    {
+        if (isset($exceptionErrors) && is_array($exceptionErrors) && count($exceptionErrors) > 0) {
+            foreach ($exceptionErrors as $error) {
+                return $this->extractErrorMessage($error);
+            }
+        } else {
+            return $exceptionErrors;
+        }
     }
 }

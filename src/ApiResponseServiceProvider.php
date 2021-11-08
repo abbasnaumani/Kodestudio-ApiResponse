@@ -21,9 +21,11 @@ class ApiResponseServiceProvider extends ServiceProvider
         $this->app->singleton('api.response', ApiResponseHelper::class);
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->mergeConfigFrom(__DIR__ . '/../config/apiresponse.php', 'apiresponse');
-        $this->publishes([
-            __DIR__ . '/../config/apiresponse.php' => config_path('apiresponse.php'),
-        ], 'apiresponse-config');
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/apiresponse.php' => config_path('apiresponse.php'),
+            ], 'apiresponse-config');
+        }
         /*
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'contact');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
