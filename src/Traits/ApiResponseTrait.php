@@ -22,7 +22,7 @@ trait ApiResponseTrait
         ApiResponseFacade::setCode($statusCode);
     }
 
-    public function response()
+    public function getResponse()
     {
         return ApiResponseFacade::getResponse();
     }
