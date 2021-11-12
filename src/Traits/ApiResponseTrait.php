@@ -19,7 +19,12 @@ trait ApiResponseTrait
     {
         ApiResponseFacade::setMessage($msg);
         ApiResponseFacade::setPayload($payload);
-        ApiResponseFacade::setCode($statusCode);
+        ApiResponseFacade::setCode(401);
+    }
+
+    public function getCode()
+    {
+        return ApiResponseFacade::getCode();
     }
 
     public function getResponse()
