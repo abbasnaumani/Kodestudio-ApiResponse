@@ -7,18 +7,18 @@ use Kodestudio\ApiResponse\Facades\ApiResponseFacade;
 trait ApiResponseTrait
 {
 
-    public function setApiSuccessMessage($msg, $data = null, $statusCode = 200)
+    public function setApiSuccessMessage($msg, $payload = null, $statusCode = 200)
     {
         ApiResponseFacade::setStatus(config('apiresponse.success_response'));
         ApiResponseFacade::setMessage($msg);
-        ApiResponseFacade::setData($data);
+        ApiResponseFacade::setPayload($payload);
         ApiResponseFacade::setCode($statusCode);
     }
 
-    public function setApiErrorMessage($msg, $data = null, $statusCode = 400)
+    public function setApiErrorMessage($msg, $payload = null, $statusCode = 400)
     {
         ApiResponseFacade::setMessage($msg);
-        ApiResponseFacade::setData($data);
+        ApiResponseFacade::setPayload($payload);
         ApiResponseFacade::setCode($statusCode);
     }
 

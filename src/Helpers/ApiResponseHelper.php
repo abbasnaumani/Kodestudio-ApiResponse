@@ -7,7 +7,7 @@ class ApiResponseHelper
     public $status;
     public $message;
     private $code;
-    public $data;
+    public $payload;
     private $responseFormat;
 
     public function __construct()
@@ -20,61 +20,51 @@ class ApiResponseHelper
 
     public function setStatus($status)
     {
-        //  $apiHelper = app(ApiResponseHelper::class);
         $this->status = $status;
     }
 
     public function getStatus()
     {
-        //    $apiHelper = app(ApiResponseHelper::class);
         return $this->status;
     }
 
     public function setCode($code)
     {
-        // $apiHelper = app(ApiResponseHelper::class);
         $this->code = $code;
     }
 
     public function getCode()
     {
-        //$apiHelper = app(ApiResponseHelper::class);
         return $this->code;
     }
 
     public function setMessage($message)
     {
-        //  $apiHelper = app(ApiResponseHelper::class);
         $this->message = $message;
     }
 
     public function getMessage()
     {
-        /// $apiHelper = app(ApiResponseHelper::class);
         return $this->message;
     }
 
-    public function setData($data)
+    public function setPayload($payload)
     {
-        // $apiHelper = app(ApiResponseHelper::class);
-        $this->data = $data;
+        $this->payload = $payload;
     }
 
-    public function getData()
+    public function getPayload()
     {
-        //   $apiHelper = app(ApiResponseHelper::class);
-        return $this->data;
+        return $this->payload;
     }
 
     public function setResponseFormat($responseFormat)
     {
-        // $apiHelper = app(ApiResponseHelper::class);
         $this->responseFormat = $responseFormat;
     }
 
     public function getResponseFormat()
     {
-        // $apiHelper = app(ApiResponseHelper::class);
         return $this->responseFormat;
     }
 
@@ -85,7 +75,6 @@ class ApiResponseHelper
 
     public function getApiResponse()
     {
-        //   $apiHelper = app(ApiResponseHelper::class);
         if ($this->responseFormat == config('apiresponse.response_format')) {
             return response()->json($this, $this->code);
         }
