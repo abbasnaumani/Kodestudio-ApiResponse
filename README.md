@@ -112,14 +112,15 @@ class Handler extends ExceptionHandler
 
     public function register()
     {
-      $this->renderable(function (Throwable $e) {
+     $this->renderable(function (Throwable $e) {
             if ($e instanceof ValidationException) {
-                $this->setApiErrorMessage($this->extractErrorMessage($e->errors()), ['errors' => $this->traceErrors($e)]);
+                $this->errorMessage = $this->extractErrorMessage($e->errors());
             } elseif ($e instanceof AuthenticationException) {
-                $this->setApiErrorMessage($e->getMessage(), ['errors' => $this->traceErrors($e)], 401);
+                $this->errorMessage = $e->getMessage();
             } else {
-                $this->setApiErrorMessage($e->getMessage(), ['errors' => $this->traceErrors($e)]);
+                $this->errorMessage = $e->getMessage();
             }
+            $this->setApiErrorMessage($this->errorMessage, ['errors' => $this->traceErrors($e)]);
             return $this->getApiResponse();
         });
     }
