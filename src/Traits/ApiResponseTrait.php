@@ -14,7 +14,7 @@ trait ApiResponseTrait
         ApiResponseFacade::setStatus(config('apiresponse.success_response'));
         ApiResponseFacade::setMessage($msg);
         ApiResponseFacade::setPayload($payload);
-        ApiResponseFacade::setCode($statusCode);
+        ApiResponseFacade::setStatusCode($statusCode);
     }
 
     /**
@@ -24,7 +24,17 @@ trait ApiResponseTrait
     {
         ApiResponseFacade::setMessage($msg);
         ApiResponseFacade::setPayload($payload);
-        ApiResponseFacade::setCode(401);
+        ApiResponseFacade::setStatusCode($statusCode);
+    }
+
+    /**
+     * Method to Get Http Status Code
+     *
+     * @return mixed
+     */
+    public function getStatusCode()
+    {
+        return ApiResponseFacade::getStatusCode();
     }
 
     /**
@@ -81,6 +91,7 @@ trait ApiResponseTrait
     public function traceErrors($e): array
     {
         return [
+            'getStatusCode' => $e->getStatusCode(),
             'getPrevious' => $e->getPrevious(),
             'getMessage' => $e->getMessage(),
             'getCode' => $e->getCode(),

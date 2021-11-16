@@ -7,6 +7,7 @@ class ApiResponseHelper
     public $status;
     public $message;
     private $code;
+    private $statusCode;
     public $payload;
     private $responseFormat;
 
@@ -37,7 +38,24 @@ class ApiResponseHelper
     }
 
     /**
-     * Method to Set Code
+     * Method to Set Http Status Code
+     */
+    public function setStatusCode($statusCode)
+    {
+        $this->statusCode = $statusCode;
+    }
+
+    /**
+     * Method to Get Http Status Code
+     *
+     * @return mixed
+     */
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+    /**
+     * Method to Set Exception Code
      */
     public function setCode($code)
     {
@@ -45,7 +63,7 @@ class ApiResponseHelper
     }
 
     /**
-     * Method to Get Code
+     * Method to Get Exception Code
      *
      * @return mixed
      */
