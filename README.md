@@ -118,7 +118,7 @@ class Handler extends ExceptionHandler
             } elseif ($e instanceof AuthenticationException) {
                 $this->setApiErrorMessage($e->getMessage(), ['errors' => $this->traceErrors($e)], $e->getStatusCode());
             } elseif ($e instanceof \Illuminate\Http\Exceptions\PostTooLargeException) {
-                $this->setApiErrorMessage("Post Size is too large 123.", ['errors' => $this->traceErrors($e)], $e->getStatusCode());
+                $this->setApiErrorMessage("Post Size is too large.", ['errors' => $this->traceErrors($e)], $e->getStatusCode());
             } elseif ($e instanceof ModelNotFoundException) {
                 $this->setApiErrorMessage("Modal Not Found", ['errors' => $this->traceErrors($e)], $e->getStatusCode());
             } elseif ($e instanceof MediaUploadException) {
