@@ -15,6 +15,7 @@ class ApiResponseHelper
     {
         $this->status = config('apiresponse.error_response');
         $this->message = config('apiresponse.error_message');
+        $this->statusCode = config('apiresponse.error_code');
         $this->code = config('apiresponse.error_code');
         $this->responseFormat = config('apiresponse.response_format');
     }
@@ -144,7 +145,7 @@ class ApiResponseHelper
     public function getApiResponse()
     {
         if ($this->responseFormat == config('apiresponse.response_format')) {
-            return response()->json($this, $this->code);
+            return response()->json($this, $this->statusCode);
         }
         return $this;
     }
