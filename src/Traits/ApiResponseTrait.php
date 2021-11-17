@@ -91,7 +91,6 @@ trait ApiResponseTrait
     public function traceErrors($e): array
     {
         return [
-            'getStatusCode' => $e->getStatusCode(),
             'getPrevious' => $e->getPrevious(),
             'getMessage' => $e->getMessage(),
             'getCode' => $e->getCode(),
