@@ -22,6 +22,7 @@ trait ApiResponseTrait
      */
     public function setApiErrorMessage($msg, $payload = null, $statusCode = 400)
     {
+        ApiResponseFacade::setStatus(config('apiresponse.error_response'));
         ApiResponseFacade::setMessage($msg);
         ApiResponseFacade::setPayload($payload);
         ApiResponseFacade::setStatusCode($statusCode);
